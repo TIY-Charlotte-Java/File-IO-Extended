@@ -3,10 +3,7 @@ package com.theironyard.charlotte;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
 
@@ -15,9 +12,6 @@ public class Main {
 
 
         HashMap<String, ArrayList<Person>> list = new HashMap<>();
-
-        Person person = new Person();
-        //list.put("emilee", 2,"emileen","mar","daf","canada",);
 
 
         File f = new File("Directory.txt");
@@ -38,7 +32,8 @@ public class Main {
 
 
         }
-
+        Set<Map.Entry<String, ArrayList<Person>>> set = list.entrySet();
+        System.out.printf(set.toString());
 
     }
 
