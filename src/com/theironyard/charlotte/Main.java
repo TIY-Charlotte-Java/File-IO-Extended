@@ -10,14 +10,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
         HashMap<String, ArrayList<Person>> people = new HashMap<>();
-        File f = new File("people.txt");
+        File f = new File("people.csv");
         Scanner scanner = new Scanner(f);
 
         while (scanner.hasNext()) {
             String line = scanner.nextLine();
             String[] element = line.split(",");
-            Person person = new Person(Integer.valueOf(element[0], element[1], element[2], element[3], element[4], element[5]));
+            Person person = new Person(Integer.valueOf(element[0]), (element[1]), (element[2]), (element[3]), (element[4]), (element[5]));
             addToHashMap(people, person);
+            System.out.println(person);
         }
     }
     public static void addToHashMap(HashMap<String, ArrayList<Person>> map, Person p) {

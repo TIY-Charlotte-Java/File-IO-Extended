@@ -76,7 +76,8 @@ public class Person {
         this.ipAddress = ipAddress;
     }
 
-    public String string() {
+    @Override
+    public String toString() {
         return String.format("%s %s is from %s", firstName, lastName, country);
     }
 }
