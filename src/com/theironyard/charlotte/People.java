@@ -2,9 +2,7 @@ package com.theironyard.charlotte;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class People {
 
@@ -20,19 +18,21 @@ public class People {
             String[] columns = line.split(",");
             Person person = new Person(Integer.valueOf(columns[0]), columns[1], columns[2], columns[3], columns[4], columns[5]);
             ppl.add(person);
-            //map.putIfAbsent(person.country, ppl);
+            addPerson(map, person);
         }
-        map.get(ppl).toArray();
-//        System.out.println(ppl.get(0).toString());
-//        System.out.println(ppl.get(1).toString());
+        Set<Map.Entry<String, ArrayList<Person>>> one = map.entrySet();
+        System.out.println(one.toString());
 
-//        for (HashMap.Entry<String, ArrayList<Person>> entry : map.entrySet()) {
-//            String key = entry.getKey();
-//            ArrayList<Person> values = entry.getValue();
-//            System.out.println("Key = " + key);
-//            System.out.println("Value = " + values);
-        }
-        //System.out.println(ppl);
+    }
 
+        public static void addPerson(HashMap<String, ArrayList<Person>> perpList, Person p) {
+            ArrayList<Person> perp = new ArrayList<>();
 
+            perp = perpList.putIfAbsent(p.country, perp);
+            if (perp != null) {
+                perp.add(p);
+            } else {
+                perpList.get(p.country).add(p);
+            }
+    }
 }
